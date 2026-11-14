@@ -1,0 +1,5 @@
+[
+  {"id":"C001","name":"新人满49减5券","threshold":49,"discount":5,"enabled":true},
+  {"id":"C002","name":"会员满79减10券","threshold":79,"discount":10,"enabled":true},
+  {"id":"C003","name":"果干品类券","threshold":30,"discount":4,"enabled":false}
+]

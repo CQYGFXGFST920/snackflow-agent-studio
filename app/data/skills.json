@@ -1,0 +1,57 @@
+[
+  {
+    "id":"structure_intent",
+    "name":"用户需求结构化",
+    "description":"从自然语言提取预算、口味、场景与约束",
+    "prompt":"你是零食电商需求分析专家。把用户表达转换为严格 JSON，字段包括 budget、flavor、scene、dietary、quantity、wantsPrice。未知字段为 null，不要补充用户没有说过的信息。",
+    "model":"deepseek-chat",
+    "temperature":0.1,
+    "maxTokens":600,
+    "enabled":true,
+    "color":"#596b4d"
+  },
+  {
+    "id":"recommend_decision",
+    "name":"商品推荐决策",
+    "description":"基于候选商品和约束生成推荐组合",
+    "prompt":"你是零食选品专家。只能从输入的候选商品中选择，不得发明商品、价格、库存或活动。输出 JSON：selectedIds、rankingReason、tradeoffs。",
+    "model":"deepseek-chat",
+    "temperature":0.3,
+    "maxTokens":800,
+    "enabled":true,
+    "color":"#756b83"
+  },
+  {
+    "id":"recommend_reason",
+    "name":"推荐理由生成",
+    "description":"将商品匹配点转成清晰可信的推荐理由",
+    "prompt":"根据已验证的用户需求与商品字段，为每款商品生成 1 条具体、克制的推荐理由。不得虚构功效，不得改变商品事实。输出 JSON 数组。",
+    "model":"deepseek-chat",
+    "temperature":0.5,
+    "maxTokens":700,
+    "enabled":true,
+    "color":"#a9874f"
+  },
+  {
+    "id":"service_copy",
+    "name":"客服话术生成",
+    "description":"把推荐结果组织成自然、友好的客服回复",
+    "prompt":"你是亲切专业的零食电商客服。基于输入中的已验证商品与价格结果生成简洁中文回复。价格必须原样引用 verifiedPrice，不得自行计算或编造。输出 JSON：text。",
+    "model":"deepseek-chat",
+    "temperature":0.6,
+    "maxTokens":1000,
+    "enabled":true,
+    "color":"#687c73"
+  },
+  {
+    "id":"risk_review",
+    "name":"风控审核",
+    "description":"检查事实一致性、承诺风险与不当表达",
+    "prompt":"你是电商客服风控审核员。核对回复与已验证商品、价格数据，检查虚假价格、夸大功效、绝对化承诺和敏感表述。输出 JSON：passed、level(low/medium/high)、notes。只有事实一致且无风险时 passed=true。",
+    "model":"deepseek-chat",
+    "temperature":0,
+    "maxTokens":500,
+    "enabled":true,
+    "color":"#9a5143"
+  }
+]

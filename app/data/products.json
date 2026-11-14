@@ -1,0 +1,8 @@
+[
+  {"id":"P001","name":"海盐波浪薯片","category":"薯片","price":16.9,"stock":138,"rating":4.8,"tags":["不辣","追剧","办公室","咸香"],"description":"厚切波浪片，轻盐配方，酥脆不油腻"},
+  {"id":"P002","name":"低糖冻干草莓脆","category":"果干","price":22.8,"stock":86,"rating":4.9,"tags":["不辣","低糖","亲子","办公室"],"description":"整颗草莓冻干，无额外添加蔗糖"},
+  {"id":"P003","name":"炭烤小肉脯","category":"肉食","price":28.5,"stock":67,"rating":4.7,"tags":["不辣","高蛋白","追剧"],"description":"原切猪后腿肉，炭烤香气浓郁"},
+  {"id":"P004","name":"藤椒脆骨小串","category":"辣味","price":19.9,"stock":112,"rating":4.6,"tags":["辣","追剧","藤椒"],"description":"麻香微辣，脆骨有嚼劲"},
+  {"id":"P005","name":"无糖酸奶溶豆","category":"乳制品","price":25.9,"stock":54,"rating":4.8,"tags":["不辣","低糖","亲子"],"description":"入口即化，添加益生菌发酵酸奶"},
+  {"id":"P006","name":"每日坚果轻享装","category":"坚果","price":39.9,"stock":93,"rating":4.7,"tags":["不辣","低糖","办公室","高蛋白"],"description":"七种坚果果干科学配比，独立小包装"}
+]

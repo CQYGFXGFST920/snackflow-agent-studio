@@ -1,0 +1,5 @@
+[
+  {"id":"A001","name":"夏日零食节·满59减8","threshold":59,"discount":8,"enabled":true},
+  {"id":"A002","name":"囤货季·满99减18","threshold":99,"discount":18,"enabled":true},
+  {"id":"A003","name":"会员尝鲜·满39减3","threshold":39,"discount":3,"enabled":true}
+]

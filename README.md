@@ -8,7 +8,7 @@
 **Status:** Prototype · v5 source snapshot · selected local tests passed  
 **Language:** Chinese-first interface and sample data
 
-[Live demo](https://snackflow-agent-studio.lishiman920.chatgpt.site) · [Validation notes](VALIDATION.md)
+[Validation notes](VALIDATION.md) · [Public-package review](PUBLIC_REVIEW.md)
 
 ## Overview | 项目简介
 
@@ -72,7 +72,7 @@ Dependency versions are recorded in [`package.json`](package.json) and [`pnpm-lo
 
 ## Run locally | 本地运行
 
-**Requirements:** Node.js `>=22.13.0`, pnpm `11.9.0`.
+**Requirements:** Node.js `>=22.13.0`, pnpm `11.9.0`. The reset unit tests also require the `sqlite3` CLI at `/usr/bin/sqlite3` (the original tests are macOS-oriented).
 
 ```bash
 pnpm install --frozen-lockfile
@@ -109,7 +109,7 @@ Real keys belong in a local, Git-ignored `.env` file or the hosting platform's s
 
 ## Coze workflow backup | 工作流备份
 
-A separate Coze Chatflow export of `kefu_1` can be kept under `coze-workflow/` after sensitive test data is removed. This export is a **workflow configuration backup**, not the TypeScript Agent's runtime implementation, and the v5 website does not contain a verified adapter executing that exported Chatflow directly.
+No Coze workflow export was available in the reviewed v5 source. No workflow ZIP is included in this public package. The TypeScript Agent is the runtime implementation; v5 contains no verified adapter executing a Coze Chatflow directly. A separately supplied native export requires its own privacy review before inclusion.
 
 Imported workflows may still require the original workspace's knowledge bases, database content, plugins, permissions and external credentials. Draft exports should not be assumed identical to a published online version.
 
@@ -142,6 +142,14 @@ public/         Static assets
 ```
 
 ## Project notes | 项目说明
+
+### Local configuration and deployment boundary
+
+The public `.openai/hosting.json` contains only logical local bindings (`d1: DB`, `r2: null`); the private production project ID has been removed. The build still stages this sanitized metadata and migrations. Local development uses an isolated D1 database; repositories initialize their tables and demo records. `pnpm start` serves the production build locally.
+
+This archive does not include production database content, hosting credentials or a deployment target. Configure your own hosting resources and secret store before attempting deployment; the public package cannot publish to the original project. The legacy `/api/skill` route separately uses the blank `DEEPSEEK_API_KEY` / `LLM_BASE_URL` settings. This route is not a verified Coze integration.
+
+The two orders in `app/data/orders.json` use the name “演示用户”; logistics use `SF-DEMO-240701`. They contain no recipient address, phone number or payment identifiers. Treat these as demo fixtures, not real order integrations. The social preview artwork is illustrative, not evidence of production inventory/price verification.
 
 This is a learning and prototyping project developed with AI-assisted coding tools. The work includes scenario design, workflow/feature definition, iterative debugging and validation; source code should be read alongside the recorded testing limitations rather than treated as a fully verified production service.
 
